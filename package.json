@@ -1,0 +1,37 @@
+{
+  "name": "reco_rest_api_endpoints",
+  "version": "1.0.0",
+  "description": "RESTful API Endpoints for SoCaTel Recommender Engine",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "restful",
+    "endpoints",
+    "socatel",
+    "recommendations"
+  ],
+  "author": "CyRIC | Cyprus Research and Innovation Centre Ltd <info@cyric.eu> (https://www.cyric.eu/)",
+  "contributors": [
+    {
+      "name" : "Aristotelis Charalampous",
+      "email" : "a.charalampous@cyric.eu",
+      "url": "https://www.linkedin.com/in/aristotelischaralampous/"
+    }
+  ],
+  "license": "Apache-2.0",
+  "funding": "https://www.socatel.eu/",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.5.0",
+    "express": "^4.17.1",
+    "express-basic-auth": "^1.2.0",
+    "graphql-request": "^1.8.2",
+    "http-auth": "^3.2.3",
+    "mongodb": "^3.4.1",
+    "request": "^2.88.0",
+    "requests": "^0.3.0",
+    "swagger-ui-express": "^4.0.7",
+    "yamljs": "^0.3.0"
+  }
+}

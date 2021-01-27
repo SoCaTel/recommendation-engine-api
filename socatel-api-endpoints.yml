@@ -1,0 +1,160 @@
+swagger: '2.0'
+info:
+  title: SoCaTel - Recommendation Engine RESTful API Endpoints
+  description: WP4 - KB RESTful API Endpoints that are derived from the Recommendation Engine SREs [REC] as these are defiend in D4.5
+  version: v1.0
+  contact:
+  - name: "CyRIC | Cyprus Research and Innovation Centre"
+    email: "info@cyric.eu"
+tags:
+- name: "REC"
+  description: "Recommendations - SoCaTel Recommendation Engine"
+basePath: /api
+schemes:
+  - http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  "/recommendation_getSimilarGroupsToGroup/{group_id}/{size}/{locality_id}":
+    get:
+      tags:
+      - "REC"
+      operationId: recommendation_getSimilarGroupsToGroup
+      summary: Get similar groups to the one provided.
+      description: This is based on language processing techniques. Only groups with the same locality are considered
+      parameters:
+      - in: "path"
+        name: "group_id"
+        description: "Group Id"
+        required: true
+        type: "integer"
+      - in: "path"
+        name: "size"
+        description: "Top similar groups"
+        type: "integer"
+        required: false
+      - name: "locality_id"
+        in: "path"
+        description: "The locality id to filter for."
+        required: false
+        type: "integer"
+      responses:
+        200:
+          description: "Successful Retrieval"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error. Contact your Administrator"
+  "/recommendation_getSimilarServicesToService/{service_id}/{size}":
+    get:
+      tags:
+      - "REC"
+      operationId: recommendation_getSimilarServicesToService
+      summary: Get similar services to the one provided.
+      description: This is based language processing techniques. Only services with the same locality are considered
+      parameters:
+      - in: "path"
+        name: "service_id"
+        description: "Service Id"
+        required: true
+        type: "integer"
+      - in: "path"
+        name: "size"
+        description: "Top similar services"
+        type: "integer"
+        required: false
+      responses:
+        200:
+          description: "Successful Retrieval"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error. Contact your Administrator"
+  "/recommendation_getSimilarServicesToGroup/{group_id}/{size}":
+    get:
+      tags:
+      - "REC"
+      operationId: recommendation_getSimilarServicesToGroup
+      summary: Get similar services to the group provided.
+      description: This is based language processing techniques. Only services with the same locality are considered
+      parameters:
+      - in: "path"
+        name: "group_id"
+        description: "Group Id"
+        required: true
+        type: "integer"
+      - in: "path"
+        name: "size"
+        description: "Top similar services"
+        type: "integer"
+        required: false
+      responses:
+        200:
+          description: "Successful Retrieval"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error. Contact your Administrator"
+  "/recommendation_getGroupGivenUser/{user_id}/{size}/{locality_id}":
+    get:
+      tags:
+      - "REC"
+      operationId: recommendation_getGroupGivenUser
+      summary: Get groups based on similar users' activity.
+      description: This is based on a factor analysis algorithm called Singular Value Decomposition. This algo runs on the PredictionIO server.
+      parameters:
+      - in: "path"
+        name: "user_id"
+        description: "User Id"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "size"
+        description: "Top recommended groups"
+        type: "integer"
+        required: false
+      - name: "locality_id"
+        in: "path"
+        description: "The locality id to filter for."
+        required: false
+        type: "integer"
+      responses:
+        200:
+          description: "Successful Retrieval"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error. Contact your Administrator"
+  "/recommendation_getServiceGivenUser/{user_id}/{size}":
+    get:
+      tags:
+      - "REC"
+      operationId: recommendation_getServiceGivenUser
+      summary: Get services based on user activity in groups.
+      description:
+      parameters:
+      - in: "path"
+        name: "user_id"
+        description: "User Id"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "size"
+        description: "Top recommended services"
+        type: "integer"
+        required: false
+      responses:
+        200:
+          description: "Successful Retrieval"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error. Contact your Administrator"
+securityDefinitions:
+  basicAuth:
+    type: basic
+
+security:
+- basicAuth: []
