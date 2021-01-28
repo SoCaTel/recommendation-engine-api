@@ -20,8 +20,8 @@ The docker container used will take care of installing node and all packages req
 
 You will need to have the following setup, found in the [SoCaTel](https://github.com/SoCaTel/) group:
 * PredictionIO recommendation engine, to retrieve user to user recommendations.
-* GraphQL, for semantic repository queries, exposed through API calls in [this](https://github.com/SoCaTel/rest-api) 
-repository.
+* GraphQL, for semantic repository queries, found [here](https://github.com/SoCaTel/socatel-graphql) exposed through
+ API calls in [this](https://github.com/SoCaTel/rest-api) repository.
 * Elasticsearch, for direct queries to the database. For help in setting this up and the necessary Elasticsearch indices
 , refer to [this](https://github.com/SoCaTel/elasticsearch-schema) repository.
 * MongoDB, for accessing recommendation and semantic engine's stored outputs from periodical runs
