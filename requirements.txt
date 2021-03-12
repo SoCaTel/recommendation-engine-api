@@ -1,2 +1,0 @@
-en-core-web-md==2.2.5
-es-core-news-md==2.2.5
